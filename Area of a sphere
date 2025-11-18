@@ -3,7 +3,7 @@
 int main() {
     float radius;
     float area;
-    float pi = 3.14;
+    float pi = 3.142;
 
         printf("Enter radius of the sphere: ");
     scanf("%f", &radius);
