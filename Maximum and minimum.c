@@ -1,32 +1,33 @@
 #include <stdio.h>
 
 int main() {
-    int n, num;
+    int n, i, j, temp;
+    int arr[100];
 
-    printf("How many numbers? ");
+    printf("Input the size of array : ");
     scanf("%d", &n);
 
-    if(n <= 0) {
-        printf("Enter a positive number!\n");
-        return 0;
+    printf("Input %d elements in the array :\n", n);
+    for (i = 0; i < n; i++) {
+        printf("element - %d : ", i);
+        scanf("%d", &arr[i]);
     }
 
-    printf("Enter %d numbers:\n", n);
-
-    // Read first number
-    scanf("%d", &num);
-    int min = num;
-    int max = num;
-
-    // Read remaining numbers
-    for(int i = 1; i < n; i++) {
-        scanf("%d", &num);
-        if(num < min) min = num;
-        if(num > max) max = num;
+    // Sorting in ascending order
+    for (i = 0; i < n - 1; i++) {
+        for (j = i + 1; j < n; j++) {
+            if (arr[i] > arr[j]) {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
     }
 
-    printf("Maximum: %d\n", max);
-    printf("Minimum: %d\n", min);
+    printf("Elements of array in sorted ascending order: ");
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
 
     return 0;
 }
